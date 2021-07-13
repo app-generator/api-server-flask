@@ -1,9 +1,7 @@
 flask/
 *.pyc
 dev
-node_modules
-app/database.db
-app/build
+api/apidata.db
 yarn.lock
 yarn-error.log
 *.psd

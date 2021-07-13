@@ -4,22 +4,15 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 import os
-from   decouple import config
-from   datetime import datetime, timedelta, timezone
+from datetime import timedelta
 
-# Grabs the folder where the script runs.
-basedir = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
-class Config():
 
-    CSRF_ENABLED = True
-	
-    # Set up the SECRET_KEY(s)
-    SECRET_KEY     = config('SECRET_KEY', default='S#perS3crEt_007')
-    JWT_SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_API')
+class BaseConfig():
 
-    # This will create a file in <app> FOLDER
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite3')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'apidata.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
+    SECRET_KEY = "flask-app-secret-key-change-it"
+    JWT_SECRET_KEY = "jwt-app-secret-key-change-it"
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)

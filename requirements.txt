@@ -2,5 +2,4 @@ Flask==1.1.4
 flask-restx==0.4.0
 flask_jwt_extended==4.2.3
 Flask-SQLAlchemy==2.5.1
-sqlalchemy==1.4.20
-python-decouple==3.4
+pytest
