@@ -32,15 +32,15 @@ def check_if_token_revoked(jwt_header, jwt_payload):
 
 signup_model = rest_api.model('SignUpModel', {"name": fields.String(required=True, min_length=2, max_length=32),
                                               "email": fields.String(required=True, min_length=4, max_length=64),
-                                              "password": fields.String(required=True, min_length=6, max_length=16)
+                                              "password": fields.String(required=True, min_length=4, max_length=16)
                                               })
 
 login_model = rest_api.model('LoginModel', {"email": fields.String(required=True, min_length=4, max_length=64),
-                                            "password": fields.String(required=True, min_length=6, max_length=16)
+                                            "password": fields.String(required=True, min_length=4, max_length=16)
                                             })
 
 user_edit_model = rest_api.model('UserEditModel', {"name": fields.String(required=True, min_length=2, max_length=32),
-                                                   "password": fields.String(required=True, min_length=6, max_length=16)
+                                                   "password": fields.String(required=True, min_length=4, max_length=16)
                                                    })
 
 """
