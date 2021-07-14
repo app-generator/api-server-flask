@@ -48,7 +48,7 @@ user_edit_model = rest_api.model('UserEditModel', {"name": fields.String(require
 """
 
 
-@rest_api.route('/users/signup')
+@rest_api.route('/api/users/signup')
 class Register(Resource):
     """
        Creates a new user by taking 'signup_model' input
@@ -75,7 +75,7 @@ class Register(Resource):
         return {'message': 'User with (%s, %s) created successfully!' % (_name, _email)}, 201
 
 
-@rest_api.route('/users/login')
+@rest_api.route('/api/users/login')
 class Login(Resource):
     """
        Login user by taking 'login_model' input and return JWT token
@@ -103,7 +103,7 @@ class Login(Resource):
         return {"access_token": access_token}, 200
 
 
-@rest_api.route('/users/edit')
+@rest_api.route('/api/users/edit')
 class EditUser(Resource):
     """
        Edits User's name or password or both using 'user_edit_model' input
@@ -135,7 +135,7 @@ class EditUser(Resource):
         return {"message": 'User details updated successfully!'}, 200
 
 
-@rest_api.route('/users/logout')
+@rest_api.route('/api/users/logout')
 class LogoutUser(Resource):
     """
        Edits User's name or password or both using 'user_edit_model' input
