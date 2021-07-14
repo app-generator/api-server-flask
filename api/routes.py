@@ -30,7 +30,7 @@ def check_if_token_revoked(jwt_header, jwt_payload):
     Flask-Restx models for api request and response data
 """
 
-signup_model = rest_api.model('SignUpModel', {"name": fields.String(required=True, min_length=2, max_length=32),
+signup_model = rest_api.model('SignUpModel', {"username": fields.String(required=True, min_length=2, max_length=32),
                                               "email": fields.String(required=True, min_length=4, max_length=64),
                                               "password": fields.String(required=True, min_length=4, max_length=16)
                                               })
@@ -39,7 +39,7 @@ login_model = rest_api.model('LoginModel', {"email": fields.String(required=True
                                             "password": fields.String(required=True, min_length=4, max_length=16)
                                             })
 
-user_edit_model = rest_api.model('UserEditModel', {"name": fields.String(required=True, min_length=2, max_length=32),
+user_edit_model = rest_api.model('UserEditModel', {"username": fields.String(required=True, min_length=2, max_length=32),
                                                    "password": fields.String(required=True, min_length=4, max_length=16)
                                                    })
 
@@ -59,20 +59,22 @@ class Register(Resource):
 
         req_data = request.get_json()
 
-        _name = req_data.get("name")
+        _username = req_data.get("username")
         _email = req_data.get("email")
         _password = req_data.get("password")
 
         user_exists = Users.get_by_email(_email)
         if user_exists:
-            abort(400, "Sorry. This email already exists.")
+            return {"success": False,
+                    "msg": "Sorry. This email already exists."}, 400
 
-        new_user = Users(name=_name, email=_email)
+        new_user = Users(username=_username, email=_email)
 
         new_user.set_password(_password)
         new_user.save()
 
-        return {'message': 'User with (%s, %s) created successfully!' % (_name, _email)}, 201
+        return {"success": True,
+                "msg": "User with (%s, %s) created successfully!" % (_username, _email)}, 201
 
 
 @rest_api.route('/api/users/login')
@@ -92,10 +94,12 @@ class Login(Resource):
         user_exists = Users.get_by_email(_email)
 
         if not user_exists:
-            abort(400, "Sorry. This email does not exist.")
+            return {"success": False,
+                    "msg": "Sorry. This email does not exist."}, 400
 
         if not user_exists.check_password(_password):
-            abort(400, "Sorry. Wrong credentials.")
+            return {"success": False,
+                    "msg": "Sorry. Wrong credentials."}, 400
 
         # create access token uwing JWT
         access_token = create_access_token(identity=_email)
@@ -106,7 +110,7 @@ class Login(Resource):
 @rest_api.route('/api/users/edit')
 class EditUser(Resource):
     """
-       Edits User's name or password or both using 'user_edit_model' input
+       Edits User's username or password or both using 'user_edit_model' input
     """
 
     @rest_api.expect(user_edit_model)
@@ -117,28 +121,30 @@ class EditUser(Resource):
         current_user = Users.get_by_email(user_email)
 
         if not current_user:
-            abort(400, "Sorry. Wrong auth token. This user does not exist.")
+            return {"success": False,
+                    "msg": "Sorry. Wrong auth token. This user does not exist."}, 400
 
         req_data = request.get_json()
 
-        _new_name = req_data.get("name")
+        _new_username = req_data.get("username")
         _new_password = req_data.get("password")
 
-        if _new_name:
-            current_user.update_name(_new_name)
+        if _new_username:
+            current_user.update_username(_new_username)
 
         if _new_password:
             current_user.set_password(_new_password)
 
         current_user.save()
 
-        return {"message": 'User details updated successfully!'}, 200
+        return {"success": True,
+                "msg": "User details updated successfully!"}, 200
 
 
 @rest_api.route('/api/users/logout')
 class LogoutUser(Resource):
     """
-       Edits User's name or password or both using 'user_edit_model' input
+       Edits User's username or password or both using 'user_edit_model' input
     """
 
     @rest_api.expect(user_edit_model)
@@ -149,9 +155,11 @@ class LogoutUser(Resource):
         current_user = Users.get_by_email(user_email)
 
         if not current_user:
-            abort(400, "Sorry. Wrong auth token")
+            return {"success": False,
+                    "msg": "Sorry. Wrong auth token"}, 400
 
         jwt_block = JWTTokenBlocklist(jti=get_jwt()["jti"], created_at=datetime.now(timezone.utc))
         jwt_block.save()
 
-        return {"message": "JWT Token revoked successfully!"}, 200
+        return {"success": True,
+                "msg": "JWT Token revoked successfully!"}, 200

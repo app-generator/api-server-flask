@@ -14,7 +14,7 @@ from api import app
    Sample test data
 """
 
-DUMMY_NAME = "apple"
+DUMMY_USERNAME = "apple"
 DUMMY_EMAIL = "apple@apple.com"
 DUMMY_PASS = "newpassword"
 
@@ -30,10 +30,10 @@ def test_user_signup(client):
        Tests /users/signup API
     """
     response = client.post(
-        "/users/signup",
+        "api/users/signup",
         data=json.dumps(
             {
-                "name": DUMMY_NAME,
+                "username": DUMMY_USERNAME,
                 "email": DUMMY_EMAIL,
                 "password": DUMMY_PASS
             }
@@ -42,7 +42,7 @@ def test_user_signup(client):
 
     data = json.loads(response.data.decode())
     assert response.status_code == 201
-    assert "User with (%s, %s) created successfully!" % (DUMMY_NAME, DUMMY_EMAIL) in data["message"]
+    assert "User with (%s, %s) created successfully!" % (DUMMY_USERNAME, DUMMY_EMAIL) in data["msg"]
 
 
 def test_user_signup_invalid_data(client):
@@ -50,10 +50,10 @@ def test_user_signup_invalid_data(client):
        Tests /users/signup API: invalid data like email field empty
     """
     response = client.post(
-        "/users/signup",
+        "api/users/signup",
         data=json.dumps(
             {
-                "name": DUMMY_NAME,
+                "username": DUMMY_USERNAME,
                 "email": "",
                 "password": DUMMY_PASS
             }
@@ -62,7 +62,7 @@ def test_user_signup_invalid_data(client):
 
     data = json.loads(response.data.decode())
     assert response.status_code == 400
-    assert "Input payload validation failed" in data["message"]
+    assert "'' is too short" in data["msg"]
 
 
 def test_user_login_correct(client):
@@ -70,7 +70,7 @@ def test_user_login_correct(client):
        Tests /users/signup API: Correct credentials
     """
     response = client.post(
-        "/users/login",
+        "api/users/login",
         data=json.dumps(
             {
                 "email": DUMMY_EMAIL,
@@ -89,7 +89,7 @@ def test_user_login_error(client):
        Tests /users/signup API: Wrong credentials
     """
     response = client.post(
-        "/users/login",
+        "api/users/login",
         data=json.dumps(
             {
                 "email": DUMMY_EMAIL,
@@ -100,4 +100,4 @@ def test_user_login_error(client):
 
     data = json.loads(response.data.decode())
     assert response.status_code == 400
-    assert "Sorry. Wrong credentials." in data["message"]
+    assert "Sorry. Wrong credentials." in data["msg"]

@@ -13,13 +13,13 @@ db = SQLAlchemy()
 
 class Users(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
-    name = db.Column(db.String(32), nullable=False)
+    username = db.Column(db.String(32), nullable=False)
     email = db.Column(db.String(64), nullable=False)
     password = db.Column(db.Text())
     date_joined = db.Column(db.DateTime(), default=datetime.utcnow)
 
     def __repr__(self):
-        return f"User {self.name}"
+        return f"User {self.username}"
 
     def save(self):
         db.session.add(self)
@@ -31,8 +31,8 @@ class Users(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-    def update_name(self, new_name):
-        self.name = new_name
+    def update_username(self, new_username):
+        self.username = new_username
 
     def update_email(self, new_email):
         self.email = new_email
