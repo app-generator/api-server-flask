@@ -53,7 +53,8 @@ initialize database, check `run.py` for shell context
 
 ```bash
 $ flask shell
-$ db.create_all()
+>>> from api import db
+>>> db.create_all()
 ```
 
 start test APIs server at `localhost:5000`
