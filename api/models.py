@@ -5,11 +5,13 @@ Copyright (c) 2019 - present AppSeed.us
 
 from datetime import datetime
 
+import json
+from json import JSONEncoder
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
-
 
 class Users(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
@@ -45,6 +47,18 @@ class Users(db.Model):
     def get_by_email(cls, email):
         return cls.query.filter_by(email=email).first()
 
+    def toDICT(self):
+        
+        cls_dict = {}
+        cls_dict['id'] = self.id
+        cls_dict['username'] = self.username
+        cls_dict['email'] = self.email
+
+        return cls_dict
+
+    def toJSON(self):
+
+        return json.dumps( self.toDICT() )
 
 class JWTTokenBlocklist(db.Model):
     id = db.Column(db.Integer(), primary_key=True)

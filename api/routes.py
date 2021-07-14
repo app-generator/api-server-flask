@@ -5,6 +5,8 @@ Copyright (c) 2019 - present AppSeed.us
 
 from datetime import datetime, timezone
 
+import json
+
 from flask import request
 from flask_restx import Api, Resource, fields, abort
 from flask_jwt_extended import JWTManager, jwt_required, get_jwt, create_access_token, get_jwt_identity
@@ -48,7 +50,7 @@ user_edit_model = rest_api.model('UserEditModel', {"username": fields.String(req
 """
 
 
-@rest_api.route('/api/users/signup')
+@rest_api.route('/api/users/register')
 class Register(Resource):
     """
        Creates a new user by taking 'signup_model' input
@@ -66,7 +68,7 @@ class Register(Resource):
         user_exists = Users.get_by_email(_email)
         if user_exists:
             return {"success": False,
-                    "msg": "Sorry. This email already exists."}, 400
+                    "msg": "Email already exists"}, 400
 
         new_user = Users(username=_username, email=_email)
 
@@ -74,7 +76,8 @@ class Register(Resource):
         new_user.save()
 
         return {"success": True,
-                "msg": "User with (%s, %s) created successfully!" % (_username, _email)}, 201
+                "userID" : new_user.id,
+                "msg": "The user was succesfully registered"}, 200
 
 
 @rest_api.route('/api/users/login')
@@ -104,7 +107,9 @@ class Login(Resource):
         # create access token uwing JWT
         access_token = create_access_token(identity=_email)
 
-        return {"access_token": access_token}, 200
+        return {"success": True,
+                "token": access_token,
+                "user" : user_exists.toJSON() }, 200
 
 
 @rest_api.route('/api/users/edit')
