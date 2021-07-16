@@ -41,9 +41,13 @@ login_model = rest_api.model('LoginModel', {"email": fields.String(required=True
                                             "password": fields.String(required=True, min_length=4, max_length=16)
                                             })
 
-user_edit_model = rest_api.model('UserEditModel', {"username": fields.String(required=True, min_length=2, max_length=32),
-                                                   "password": fields.String(required=True, min_length=4, max_length=16)
+user_edit_model = rest_api.model('UserEditModel', {"userID": fields.String(required=True, min_length=1, max_length=32),
+                                                   "username": fields.String(required=True, min_length=2, max_length=32),
+                                                   "email": fields.String(required=True, min_length=4, max_length=64)
                                                    })
+
+logout_model = rest_api.model('LogoutModel', {"token": fields.String(required=True)})
+
 
 """
     Flask-Restx routes
@@ -77,7 +81,7 @@ class Register(Resource):
 
         return {"success": True,
                 "userID" : new_user.id,
-                "msg": "The user was succesfully registered"}, 200
+                "msg": "The user was successfully registered"}, 200
 
 
 @rest_api.route('/api/users/login')
@@ -132,29 +136,28 @@ class EditUser(Resource):
         req_data = request.get_json()
 
         _new_username = req_data.get("username")
-        _new_password = req_data.get("password")
+        _new_email = req_data.get("email")
 
         if _new_username:
             current_user.update_username(_new_username)
 
-        if _new_password:
-            current_user.set_password(_new_password)
+        if _new_email:
+            current_user.update_email(_new_email)
 
         current_user.save()
 
-        return {"success": True,
-                "msg": "User details updated successfully!"}, 200
+        return {"success": True}, 200
 
 
 @rest_api.route('/api/users/logout')
 class LogoutUser(Resource):
     """
-       Edits User's username or password or both using 'user_edit_model' input
+       Logs out User using 'logout_model' input
     """
 
-    @rest_api.expect(user_edit_model)
+    @rest_api.expect(logout_model, validate=True)
     @jwt_required()
-    def delete(self):
+    def post(self):
 
         user_email = get_jwt_identity()
         current_user = Users.get_by_email(user_email)
@@ -167,4 +170,4 @@ class LogoutUser(Resource):
         jwt_block.save()
 
         return {"success": True,
-                "msg": "JWT Token revoked successfully!"}, 200
+                "msg": "JWT Token revoked successfully"}, 200

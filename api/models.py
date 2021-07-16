@@ -33,6 +33,9 @@ class Users(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
+    def update_email(self, new_email):
+        self.email = new_email
+
     def update_username(self, new_username):
         self.username = new_username
 
@@ -50,7 +53,7 @@ class Users(db.Model):
     def toDICT(self):
         
         cls_dict = {}
-        cls_dict['id'] = self.id
+        cls_dict['_id'] = self.id
         cls_dict['username'] = self.username
         cls_dict['email'] = self.email
 

@@ -27,10 +27,10 @@ def client():
 
 def test_user_signup(client):
     """
-       Tests /users/signup API
+       Tests /users/register API
     """
     response = client.post(
-        "api/users/signup",
+        "api/users/register",
         data=json.dumps(
             {
                 "username": DUMMY_USERNAME,
@@ -41,16 +41,16 @@ def test_user_signup(client):
         content_type="application/json")
 
     data = json.loads(response.data.decode())
-    assert response.status_code == 201
-    assert "User with (%s, %s) created successfully!" % (DUMMY_USERNAME, DUMMY_EMAIL) in data["msg"]
+    assert response.status_code == 200
+    assert "The user was successfully registered" in data["msg"]
 
 
 def test_user_signup_invalid_data(client):
     """
-       Tests /users/signup API: invalid data like email field empty
+       Tests /users/register API: invalid data like email field empty
     """
     response = client.post(
-        "api/users/signup",
+        "api/users/register",
         data=json.dumps(
             {
                 "username": DUMMY_USERNAME,
@@ -81,7 +81,7 @@ def test_user_login_correct(client):
 
     data = json.loads(response.data.decode())
     assert response.status_code == 200
-    assert data["access_token"] != ""
+    assert data["token"] != ""
 
 
 def test_user_login_error(client):
