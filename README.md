@@ -49,6 +49,16 @@ $ export FLASK_APP=run.py
 $ export FLASK_ENV=development
 ```
 
+> Or for Windows-based systems
+
+```powershell
+$ (Windows CMD) set FLASK_APP=run.py
+$ (Windows CMD) set FLASK_ENV=development
+$
+$ (Powershell) $env:FLASK_APP = ".\run.py"
+$ (Powershell) $env:FLASK_ENV = "development"
+```
+
 initialize database, check `run.py` for shell context
 
 ```bash
