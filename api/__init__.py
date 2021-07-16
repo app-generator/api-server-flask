@@ -6,6 +6,7 @@ Copyright (c) 2019 - present AppSeed.us
 import json
 
 from flask import Flask
+from flask_cors import CORS
 
 from .routes import rest_api, jwt
 from .models import db
@@ -17,7 +18,7 @@ app.config.from_object('api.config.BaseConfig')
 db.init_app(app)
 rest_api.init_app(app)
 jwt.init_app(app)
-
+CORS(app)
 
 """
    Custom responses
