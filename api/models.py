@@ -6,18 +6,19 @@ Copyright (c) 2019 - present AppSeed.us
 from datetime import datetime
 
 import json
-from json import JSONEncoder
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 class Users(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(32), nullable=False)
     email = db.Column(db.String(64), nullable=False)
     password = db.Column(db.Text())
+    jwt_auth_active = db.Column(db.Boolean())
     date_joined = db.Column(db.DateTime(), default=datetime.utcnow)
 
     def __repr__(self):
@@ -39,8 +40,11 @@ class Users(db.Model):
     def update_username(self, new_username):
         self.username = new_username
 
-    def update_email(self, new_email):
-        self.email = new_email
+    def check_jwt_auth_active(self):
+        return self.jwt_auth_active
+
+    def set_jwt_auth_active(self, set_status):
+        self.jwt_auth_active = set_status
 
     @classmethod
     def get_by_id(cls, id):
@@ -51,7 +55,7 @@ class Users(db.Model):
         return cls.query.filter_by(email=email).first()
 
     def toDICT(self):
-        
+
         cls_dict = {}
         cls_dict['_id'] = self.id
         cls_dict['username'] = self.username
@@ -61,15 +65,16 @@ class Users(db.Model):
 
     def toJSON(self):
 
-        return json.dumps( self.toDICT() )
+        return json.dumps(self.toDICT())
+
 
 class JWTTokenBlocklist(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
-    jti = db.Column(db.String(36), nullable=False)
+    jwt_token = db.Column(db.String(), nullable=False)
     created_at = db.Column(db.DateTime(), nullable=False)
 
     def __repr__(self):
-        return f"JTI {self.jti}"
+        return f"Expired Token: {self.jwt_token}"
 
     def save(self):
         db.session.add(self)

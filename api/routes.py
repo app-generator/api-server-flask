@@ -3,29 +3,19 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
-import json
+from functools import wraps
 
 from flask import request
-from flask_restx import Api, Resource, fields, abort
-from flask_jwt_extended import JWTManager, jwt_required, get_jwt, create_access_token, get_jwt_identity
+from flask_restx import Api, Resource, fields
+
+import jwt
 
 from .models import db, Users, JWTTokenBlocklist
+from .config import BaseConfig
 
 rest_api = Api(version="1.0", title="Users API")
-jwt = JWTManager()
-
-"""
-    Helper function for revoking JWT token
-"""
-
-
-@jwt.token_in_blocklist_loader
-def check_if_token_revoked(jwt_header, jwt_payload):
-    jti = jwt_payload["jti"]
-    token = db.session.query(JWTTokenBlocklist.id).filter_by(jti=jti).scalar()
-    return token is not None
 
 
 """
@@ -47,6 +37,47 @@ user_edit_model = rest_api.model('UserEditModel', {"userID": fields.String(requi
                                                    })
 
 logout_model = rest_api.model('LogoutModel', {"token": fields.String(required=True)})
+
+
+"""
+   Helper function for JWT token required
+"""
+
+def token_required(f):
+
+    @wraps(f)
+    def decorator(*args, **kwargs):
+
+        token = None
+
+        if "authorization" in request.headers:
+            token = request.headers["authorization"]
+
+        if not token:
+            return {"success": False, "msg": "Valid JWT token is missing"}, 400
+
+        try:
+            data = jwt.decode(token, BaseConfig.SECRET_KEY, algorithms=["HS256"])
+            current_user = Users.get_by_email(data["email"])
+
+            if not current_user:
+                return {"success": False,
+                        "msg": "Sorry. Wrong auth token. This user does not exist."}, 400
+
+            token_expired = db.session.query(JWTTokenBlocklist.id).filter_by(jwt_token=token).scalar()
+
+            if token_expired is not None:
+                return {"success": False, "msg": "Token revoked."}, 400
+
+            if not current_user.check_jwt_auth_active():
+                return {"success": False, "msg": "Token expired."}, 400
+
+        except:
+            return {"success": False, "msg": "Token is invalid"}, 400
+
+        return f(current_user, *args, **kwargs)
+
+    return decorator
 
 
 """
@@ -80,7 +111,7 @@ class Register(Resource):
         new_user.save()
 
         return {"success": True,
-                "userID" : new_user.id,
+                "userID": new_user.id,
                 "msg": "The user was successfully registered"}, 200
 
 
@@ -109,11 +140,14 @@ class Login(Resource):
                     "msg": "Sorry. Wrong credentials."}, 400
 
         # create access token uwing JWT
-        access_token = create_access_token(identity=_email)
+        token = jwt.encode({'email': _email, 'exp': datetime.utcnow() + timedelta(minutes=30)}, BaseConfig.SECRET_KEY)
+
+        user_exists.set_jwt_auth_active(True)
+        user_exists.save()
 
         return {"success": True,
-                "token": access_token,
-                "user" : user_exists.toJSON() }, 200
+                "token": token,
+                "user": user_exists.toJSON()}, 200
 
 
 @rest_api.route('/api/users/edit')
@@ -123,15 +157,8 @@ class EditUser(Resource):
     """
 
     @rest_api.expect(user_edit_model)
-    @jwt_required()
-    def post(self):
-
-        user_email = get_jwt_identity()
-        current_user = Users.get_by_email(user_email)
-
-        if not current_user:
-            return {"success": False,
-                    "msg": "Sorry. Wrong auth token. This user does not exist."}, 400
+    @token_required
+    def post(self, current_user):
 
         req_data = request.get_json()
 
@@ -139,12 +166,12 @@ class EditUser(Resource):
         _new_email = req_data.get("email")
 
         if _new_username:
-            current_user.update_username(_new_username)
+            self.update_username(_new_username)
 
         if _new_email:
-            current_user.update_email(_new_email)
+            self.update_email(_new_email)
 
-        current_user.save()
+        self.save()
 
         return {"success": True}, 200
 
@@ -156,18 +183,17 @@ class LogoutUser(Resource):
     """
 
     @rest_api.expect(logout_model, validate=True)
-    @jwt_required()
-    def post(self):
+    @token_required
+    def post(self, current_user):
 
-        user_email = get_jwt_identity()
-        current_user = Users.get_by_email(user_email)
+        req_data = request.get_json()
+        _jwt_token = req_data.get("token")
 
-        if not current_user:
-            return {"success": False,
-                    "msg": "Sorry. Wrong auth token"}, 400
-
-        jwt_block = JWTTokenBlocklist(jti=get_jwt()["jti"], created_at=datetime.now(timezone.utc))
+        jwt_block = JWTTokenBlocklist(jwt_token=_jwt_token, created_at=datetime.now(timezone.utc))
         jwt_block.save()
+
+        self.set_jwt_auth_active(False)
+        self.save()
 
         return {"success": True,
                 "msg": "JWT Token revoked successfully"}, 200
