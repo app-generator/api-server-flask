@@ -103,7 +103,7 @@ class Register(Resource):
         user_exists = Users.get_by_email(_email)
         if user_exists:
             return {"success": False,
-                    "msg": "Email already exists"}, 400
+                    "msg": "Email already taken"}, 400
 
         new_user = Users(username=_username, email=_email)
 
@@ -133,11 +133,11 @@ class Login(Resource):
 
         if not user_exists:
             return {"success": False,
-                    "msg": "Sorry. This email does not exist."}, 400
+                    "msg": "This email does not exist."}, 400
 
         if not user_exists.check_password(_password):
             return {"success": False,
-                    "msg": "Sorry. Wrong credentials."}, 400
+                    "msg": "Wrong credentials."}, 400
 
         # create access token uwing JWT
         token = jwt.encode({'email': _email, 'exp': datetime.utcnow() + timedelta(minutes=30)}, BaseConfig.SECRET_KEY)
@@ -195,5 +195,4 @@ class LogoutUser(Resource):
         self.set_jwt_auth_active(False)
         self.save()
 
-        return {"success": True,
-                "msg": "JWT Token revoked successfully"}, 200
+        return {"success": True}, 200
