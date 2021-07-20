@@ -65,7 +65,7 @@ class Users(db.Model):
 
     def toJSON(self):
 
-        return json.dumps(self.toDICT())
+        return self.toDICT()
 
 
 class JWTTokenBlocklist(db.Model):
