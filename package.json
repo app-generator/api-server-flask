@@ -1,0 +1,20 @@
+{
+    "name": "api-server-flask",
+    "version": "1.0.0",
+    "description": "Open-source Flask API Server",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/app-generator/api-server-flask"
+    },
+    "bugs": {
+        "url": "https://github.com/app-generator/api-server-flask/issues",
+        "email": "support@appseed.us"
+    },
+    "author": "AppSeed App Generator <support@appseed.us> (https://appseed.us)",
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}

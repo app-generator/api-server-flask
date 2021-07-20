@@ -1,9 +1,11 @@
-## api-server-flask
+## Flask API Server
 
-`api-server-flask` is a boilerplate starter template designed to help you quickstart your Flask based REST API server development. It has all the ready-to-use bare minimum essentials.
+Flask Starter with JWT authentication, and **SQLite** persistance - Provided by **AppSeed** [App Generator](https://appseed.us/app-generator).
+It has all the ready-to-use bare minimum essentials.
 
+<br />
 
-## Features
+> Features:
 
 - APIs: Signup, Login with (email, password), Logout, Edit User
 - SQLAlchemy + SQLite
@@ -11,6 +13,18 @@
 - Requirements
 - Tests: SignUp, Login
 
+<br />
+
+> Support: 
+
+- Github (issues tracker), Email: **support @ appseed.us** 
+- **Discord**: [LIVE Support](https://discord.gg/fZC6hup) (registered AppSeed Users) 
+
+<br />
+
+![Nodejs API Server - Open-source Nodejs Starter provided by AppSeed.](https://user-images.githubusercontent.com/51070104/124414813-142aa180-dd5c-11eb-9279-6b082dadc51a.png)
+
+<br />
 
 ## Table of Contents
 
@@ -77,7 +91,7 @@ or
 $ flask run
 ```
 
-use `flask-restx`' swagger dashboard to test APIs, or alternatively use `postman`
+use `flask-restx`' swagger dashboard to test APIs, or use `POSTMAN`
 
 
 ## Project Structure
@@ -96,6 +110,7 @@ api-server-flask/
 └── tests.py
 ```
 
+<br />
 
 ## Modules
 
@@ -106,7 +121,11 @@ This application uses the following modules
  - Flask-JWT-Extended
  - pytest
 
-
 ## Testing
 
 Run tests using `pytest tests.py`
+
+<br />
+
+---
+Flask API Server - provided by AppSeed [App Generator](https://appseed.us)
