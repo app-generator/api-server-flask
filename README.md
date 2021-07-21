@@ -15,6 +15,14 @@ It has all the ready-to-use bare minimum essentials.
 
 <br />
 
+> Can be used with other UI projects for a complete **fullstack** experience  
+
+- [React Berry Dashboard](https://github.com/app-generator/react-berry-admin-template) - open-source sample
+- [React Datta Dashboard](https://github.com/app-generator/react-datta-able-dashboard) - open-source sample
+- [React Datta Dashboard PRO](https://appseed.us/product/react-node-js-datta-able-pro) - commercial fullstack product
+
+<br />
+
 > Support: 
 
 - Github (issues tracker), Email: **support @ appseed.us** 
