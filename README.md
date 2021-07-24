@@ -7,6 +7,7 @@ It has all the ready-to-use bare minimum essentials.
 
 > Features:
 
+- [API Definition](https://docs.appseed.us/boilerplate-code/api-unified-definition) - the unified API structure implemented by this server
 - APIs: Signup, Login with (email, password), Logout, Edit User
 - SQLAlchemy + SQLite
 - Configs
