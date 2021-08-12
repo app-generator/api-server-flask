@@ -36,8 +36,6 @@ user_edit_model = rest_api.model('UserEditModel', {"userID": fields.String(requi
                                                    "email": fields.String(required=True, min_length=4, max_length=64)
                                                    })
 
-logout_model = rest_api.model('LogoutModel', {"token": fields.String(required=True)})
-
 
 """
    Helper function for JWT token required
@@ -182,12 +180,10 @@ class LogoutUser(Resource):
        Logs out User using 'logout_model' input
     """
 
-    @rest_api.expect(logout_model, validate=True)
     @token_required
     def post(self, current_user):
 
-        req_data = request.get_json()
-        _jwt_token = req_data.get("token")
+        _jwt_token = request.headers["authorization"]
 
         jwt_block = JWTTokenBlocklist(jwt_token=_jwt_token, created_at=datetime.now(timezone.utc))
         jwt_block.save()
