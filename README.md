@@ -130,4 +130,4 @@ Run tests using `pytest tests.py`
 <br />
 
 ---
-Flask API Server - provided by AppSeed [App Generator](https://appseed.us)
+**Flask API Server** - provided by AppSeed [App Generator](https://appseed.us)
