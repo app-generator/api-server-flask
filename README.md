@@ -35,30 +35,29 @@ It has all the ready-to-use bare minimum essentials.
 3. [Modules](#modules)
 4. [Testing](#testing)
 
+## How to use the code
 
-## Getting Started
-
-clone the project
+**Step #1** - Clone the project
 
 ```bash
 $ git clone https://github.com/app-generator/api-server-flask.git
 $ cd api-server-flask
 ```
 
-create virtual environment using python3 and activate it (keep it outside our project directory)
+**Step #2** - create virtual environment using python3 and activate it (keep it outside our project directory)
 
 ```bash
 $ python3 -m venv /path/to/your/virtual/environment
 $ source <path/to/venv>/bin/activate
 ```
 
-install dependencies in virtualenv
+**Step #3** - Install dependencies in virtualenv
 
 ```bash
 $ pip install -r requirements.txt
 ```
 
-setup `flask` command for our app
+**Step #4** - setup `flask` command for our app
 
 ```bash
 $ export FLASK_APP=run.py
@@ -75,7 +74,7 @@ $ (Powershell) $env:FLASK_APP = ".\run.py"
 $ (Powershell) $env:FLASK_ENV = "development"
 ```
 
-initialize database, check `run.py` for shell context
+**Step #5** - initialize database, check `run.py` for shell context
 
 ```bash
 $ flask shell
@@ -83,7 +82,7 @@ $ flask shell
 >>> db.create_all()
 ```
 
-start test APIs server at `localhost:5000`
+**Step #6** - start test APIs server at `localhost:5000`
 
 ```bash
 $ python run.py
@@ -93,8 +92,9 @@ or
 $ flask run
 ```
 
-use `flask-restx`' swagger dashboard to test APIs, or use `POSTMAN`
+**Step #7** - use `flask-restx`' swagger dashboard to test APIs, or use `POSTMAN`
 
+<br />
 
 ## Project Structure
 
