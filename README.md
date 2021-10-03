@@ -118,7 +118,7 @@ api-server-flask/
 
 For a fast set up, use this POSTMAN file: [api_sample](https://github.com/app-generator/api-server-nodejs-pro/blob/master/media/api.postman_collection.json)
 
-> **Register** - `api/users/register`
+> **Register** - `api/users/register` (**POST** request)
 
 ```
 POST api/users/register
@@ -133,7 +133,7 @@ Content-Type: application/json
 
 <br />
 
-> **Login** - `api/users/login`
+> **Login** - `api/users/login` (**POST** request)
 
 ```
 POST /api/users/login
@@ -147,7 +147,7 @@ Content-Type: application/json
 
 <br />
 
-> **Logout** - `api/users/logout`
+> **Logout** - `api/users/logout` (**POST** request)
 
 ```
 POST api/users/logout
