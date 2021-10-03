@@ -114,6 +114,53 @@ api-server-flask/
 
 <br />
 
+## API
+
+For a fast set up, use this POSTMAN file: [api_sample](https://github.com/app-generator/api-server-nodejs-pro/blob/master/media/api.postman_collection.json)
+
+> **Register** - `api/users/register`
+
+```
+POST api/users/register
+Content-Type: application/json
+
+{
+    "username":"test",
+    "password":"pass", 
+    "email":"test@appseed.us"
+}
+```
+
+<br />
+
+> **Login** - `api/users/login`
+
+```
+POST /api/users/login
+Content-Type: application/json
+
+{
+    "password":"pass", 
+    "email":"test@appseed.us"
+}
+```
+
+<br />
+
+> **Logout** - `api/users/logout`
+
+```
+POST api/users/logout
+Content-Type: application/json
+authorization: JWT_TOKEN (returned by Login request)
+
+{
+    "token":"JWT_TOKEN"
+}
+```
+
+<br />
+
 ## Modules
 
 This application uses the following modules
