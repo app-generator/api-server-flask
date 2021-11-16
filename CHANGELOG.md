@@ -1,6 +1,15 @@
 # Change Log
 
-## [v1.0.0] 2021-07-20
+## [1.0.1] 2021-11-16
+### Improvements
+
+- Tables automatic creation
+- Dependencies Update:
+  - Flask==2.0.2
+  - flask-restx==0.5.1
+- Docker Scripts   
+
+## [1.0.0] 2021-07-20
 ### Stable release
 
 - Persistance: SQLite3  
@@ -9,5 +18,4 @@
    - Sign UP: `/api/users/register`
    - Sign IN: `/api/users/login`
    - Logout: `/api/users/logout`
-   - Edit User: `/api/users/edit`
 
