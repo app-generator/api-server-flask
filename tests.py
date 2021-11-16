@@ -9,21 +9,18 @@ import json
 
 from api import app
 
-
 """
    Sample test data
 """
 
 DUMMY_USERNAME = "apple"
 DUMMY_EMAIL = "apple@apple.com"
-DUMMY_PASS = "newpassword"
-
+DUMMY_PASS = "newpassword" 
 
 @pytest.fixture
 def client():
     with app.test_client() as client:
         yield client
-
 
 def test_user_signup(client):
     """
@@ -100,4 +97,4 @@ def test_user_login_error(client):
 
     data = json.loads(response.data.decode())
     assert response.status_code == 400
-    assert "Sorry. Wrong credentials." in data["msg"]
+    assert "Wrong credentials." in data["msg"]
