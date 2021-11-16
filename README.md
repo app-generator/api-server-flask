@@ -41,9 +41,9 @@ The API server will start using the PORT `5000`.
 
 > Can be used with other [React Starters](https://appseed.us/apps/react) for a complete **Full-Stack** experience:
 
-| [React Node JS Berry](https://appseed.us/product/react-node-js-berry-dashboard) | [Full-Stack Material PRO](https://appseed.us/full-stack/react-material-dashboard) | [React Node Datta Able](https://github.com/app-generator/react-datta-able) |
+| [React Node JS Berry](https://appseed.us/product/react-node-js-berry-dashboard) | [React Node Soft Dashboard](https://appseed.us/product/node-js-react-soft-dashboard) | [React Purity Dashboard](https://github.com/app-generator/react-purity-dashboard) |
 | --- | --- | --- |
-| [![React Node JS Berry](https://user-images.githubusercontent.com/51070104/124934742-aa392300-e00d-11eb-83bf-28d8b8704ec8.png)](https://appseed.us/product/react-node-js-berry-dashboard) | [![Full-Stack Material PRO](https://user-images.githubusercontent.com/51070104/128878037-50da7a12-787d-455d-933a-30b2957e2896.png)](https://appseed.us/full-stack/react-material-dashboard) | [![React Node Datta Able](https://user-images.githubusercontent.com/51070104/125737710-834a9e6f-c39b-4f3b-a42a-9583ce2ce1da.png)](https://github.com/app-generator/react-datta-able)
+| [![React Node JS Berry](https://user-images.githubusercontent.com/51070104/124934742-aa392300-e00d-11eb-83bf-28d8b8704ec8.png)](https://appseed.us/product/react-node-js-berry-dashboard) | [![React Node Soft Dashboard](https://user-images.githubusercontent.com/51070104/137918158-54b20cce-1ac8-4279-ab89-aac0353ff7d3.png)](https://appseed.us/product/node-js-react-soft-dashboard) | [![React Purity Dashboard](https://user-images.githubusercontent.com/51070104/141952254-be2308c1-f304-42b3-bfeb-dd082ab9a86e.jpg)](https://github.com/app-generator/react-purity-dashboard)
 
 <br />
 
