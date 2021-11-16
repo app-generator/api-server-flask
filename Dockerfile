@@ -1,9 +1,14 @@
-FROM python:3.8
+FROM python:3.9
 
-ENV FLASK_APP run.py
+COPY . .
 
-COPY run.py requirements.txt ./
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-RUN pip install -r requirements.txt
+# install python dependencies
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["run:app", "flask shell"]
+# gunicorn
+CMD ["gunicorn", "--config", "gunicorn-cfg.py", "run:app"]
