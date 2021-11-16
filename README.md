@@ -14,6 +14,27 @@ It has all the ready-to-use bare minimum essentials.
 
 <br />
 
+## Quick Start in [Docker](https://www.docker.com/)
+
+> Get the code
+
+```bash
+$ git clone https://github.com/app-generator/api-server-flask.git
+$ cd api-server-flask
+```
+
+> Start the app in Docker
+
+```bash
+$ docker-compose pull  # download dependencies 
+$ docker-compose build # local set up
+$ docker-compose up    # start the app 
+```
+
+The API server will start using the PORT `5000`.
+
+<br />
+
 > **[PRO Version](https://github.com/app-generator/api-server-flask-pro)** available: MongoDB persistance, Docker, Unitary Tests, 24/7 LIVE Support via [Discord](https://discord.gg/fZC6hup)
 
 > Can be used with other [React Starters](https://appseed.us/apps/react) for a complete **Full-Stack** experience:
@@ -44,6 +65,8 @@ $ git clone https://github.com/app-generator/api-server-flask.git
 $ cd api-server-flask
 ```
 
+<br />
+
 **Step #2** - create virtual environment using python3 and activate it (keep it outside our project directory)
 
 ```bash
@@ -56,11 +79,15 @@ $ # virtualenv env
 $ # .\env\Scripts\activate
 ```
 
+<br />
+
 **Step #3** - Install dependencies in virtualenv
 
 ```bash
 $ pip install -r requirements.txt
 ```
+
+<br />
 
 **Step #4** - setup `flask` command for our app
 
@@ -79,25 +106,15 @@ $ (Powershell) $env:FLASK_APP = ".\run.py"
 $ (Powershell) $env:FLASK_ENV = "development"
 ```
 
-**Step #5** - initialize database, check `run.py` for shell context
+<br />
 
-```bash
-$ flask shell
->>> from api import db
->>> db.create_all()
-```
+**Step #5** - start test APIs server at `localhost:5000`
 
-**Step #6** - start test APIs server at `localhost:5000`
-
-```bash
-$ python run.py
-```
-or 
 ```bash
 $ flask run
 ```
 
-**Step #7** - use `flask-restx`' swagger dashboard to test APIs, or use `POSTMAN`
+Use the API via `POSTMAN` or Swagger Dashboard.
 
 <br />
 
@@ -165,15 +182,6 @@ authorization: JWT_TOKEN (returned by Login request)
 ```
 
 <br />
-
-## Modules
-
-This application uses the following modules
-
- - Flask==1.1.4
- - flask-restx==0.4.0
- - Flask-JWT-Extended
- - pytest
 
 ## Testing
 
