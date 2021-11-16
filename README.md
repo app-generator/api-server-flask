@@ -58,6 +58,8 @@ The API server will start using the PORT `5000`.
 3. [Modules](#modules)
 4. [Testing](#testing)
 
+<br />
+
 ## How to use the code
 
 **Step #1** - Clone the project
