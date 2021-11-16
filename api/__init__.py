@@ -19,10 +19,14 @@ db.init_app(app)
 rest_api.init_app(app)
 CORS(app)
 
+# Setup database
+@app.before_first_request
+def initialize_database():
+    db.create_all()
+
 """
    Custom responses
 """
-
 
 @app.after_request
 def after_request(response):
