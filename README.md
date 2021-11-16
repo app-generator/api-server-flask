@@ -37,6 +37,8 @@ The API server will start using the PORT `5000`.
 
 > **[PRO Version](https://github.com/app-generator/api-server-flask-pro)** available: MongoDB persistance, Docker, Unitary Tests, 24/7 LIVE Support via [Discord](https://discord.gg/fZC6hup)
 
+<br />
+
 > Can be used with other [React Starters](https://appseed.us/apps/react) for a complete **Full-Stack** experience:
 
 | [React Node JS Berry](https://appseed.us/product/react-node-js-berry-dashboard) | [Full-Stack Material PRO](https://appseed.us/full-stack/react-material-dashboard) | [React Node Datta Able](https://github.com/app-generator/react-datta-able) |
@@ -116,6 +118,8 @@ $ flask run
 
 Use the API via `POSTMAN` or Swagger Dashboard.
 
+![Flask API Server - Swagger Dashboard.](https://user-images.githubusercontent.com/51070104/141950891-ea315fca-24c2-4929-841c-38fb950a478d.png) 
+
 <br />
 
 ## Project Structure
@@ -138,7 +142,7 @@ api-server-flask/
 
 ## API
 
-For a fast set up, use this POSTMAN file: [api_sample](https://github.com/app-generator/api-server-nodejs-pro/blob/master/media/api.postman_collection.json)
+For a fast set up, use this `POSTMAN` file: [api_sample](https://github.com/app-generator/api-unified-definition/blob/main/api.postman_collection.json)
 
 > **Register** - `api/users/register` (**POST** request)
 
