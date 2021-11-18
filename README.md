@@ -1,6 +1,6 @@
 ## [Flask API Server](https://appseed.us/boilerplate-code/flask-api-boilerplate)
 
-Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boilerplate) enhanced with JWT authentication, SqlAlchemy/ **SQLite** persistance and deployment scripts via Docker - Provided by **AppSeed**. It has all the ready-to-use bare minimum essentials.
+Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boilerplate) enhanced with JWT authentication, SqlAlchemy, **SQLite** persistence and deployment scripts via Docker - Provided by **AppSeed**. It has all the ready-to-use bare minimum essentials.
 
 <br />
 
