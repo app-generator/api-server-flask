@@ -1,12 +1,12 @@
-## Flask API Server
+## [Flask API Server](https://appseed.us/boilerplate-code/flask-api-boilerplate)
 
-Flask Starter with JWT authentication, and **SQLite** persistance - Provided by **AppSeed** [App Generator](https://appseed.us/app-generator).
-It has all the ready-to-use bare minimum essentials.
+Simple Flask API Boilerplate enhanced with JWT authentication, SqlAlchemy/ **SQLite** persistance and deployment scripts via Docker - Provided by **AppSeed** [App Generator](https://appseed.us/app-generator). It has all the ready-to-use bare minimum essentials.
 
 <br />
 
 > Features:
 
+- Up-to-date [dependencies](./requirements.txt): **Flask 2.0.2**
 - [API Definition](https://docs.appseed.us/boilerplate-code/api-unified-definition) - the unified API structure implemented by this server
 - Simple, intuitive codebase - can be extended with ease. 
 - Flask-restX, Flask-jwt_extended
