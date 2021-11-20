@@ -9,8 +9,8 @@ Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boi
 - Up-to-date [dependencies](./requirements.txt): **Flask 2.0.2**
 - [API Definition](https://docs.appseed.us/boilerplate-code/api-unified-definition) - the unified API structure implemented by this server
 - Simple, intuitive codebase - can be extended with ease. 
-- Flask-restX, Flask-jwt_extended
-- Docker, Unitary tests
+- `Flask-restX`, `Flask-jwt_extended`
+- **Docker**, `Unitary tests`
 
 <br />
 
