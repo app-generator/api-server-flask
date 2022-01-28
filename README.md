@@ -14,7 +14,7 @@ Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boi
 
 <br />
 
-## Quick Start in `Docker`
+## ✨ Quick Start in `Docker`
 
 > Get the code
 
@@ -49,7 +49,7 @@ The API server will start using the PORT `5000`.
 
 <br />
 
-## Table of Contents
+## ✨ Table of Contents
 
 1. [Getting Started](#getting-started)
 2. [Project Structure](#project-structure)
@@ -58,9 +58,9 @@ The API server will start using the PORT `5000`.
 
 <br />
 
-## How to use the code
+## ✨ How to use the code
 
-**Step #1** - Clone the project
+> **Step #1** - Clone the project
 
 ```bash
 $ git clone https://github.com/app-generator/api-server-flask.git
@@ -69,7 +69,7 @@ $ cd api-server-flask
 
 <br />
 
-**Step #2** - create virtual environment using python3 and activate it (keep it outside our project directory)
+> **Step #2** - create virtual environment using python3 and activate it (keep it outside our project directory)
 
 ```bash
 $ # Virtualenv modules installation (Unix based systems)
@@ -83,7 +83,7 @@ $ # .\env\Scripts\activate
 
 <br />
 
-**Step #3** - Install dependencies in virtualenv
+> **Step #3** - Install dependencies in virtualenv
 
 ```bash
 $ pip install -r requirements.txt
@@ -91,14 +91,14 @@ $ pip install -r requirements.txt
 
 <br />
 
-**Step #4** - setup `flask` command for our app
+> **Step #4** - setup `flask` command for our app
 
 ```bash
 $ export FLASK_APP=run.py
 $ export FLASK_ENV=development
 ```
 
-> Or for Windows-based systems
+ For **Windows-based** systems
 
 ```powershell
 $ (Windows CMD) set FLASK_APP=run.py
@@ -110,7 +110,7 @@ $ (Powershell) $env:FLASK_ENV = "development"
 
 <br />
 
-**Step #5** - start test APIs server at `localhost:5000`
+> **Step #5** - start test APIs server at `localhost:5000`
 
 ```bash
 $ flask run
@@ -122,7 +122,7 @@ Use the API via `POSTMAN` or Swagger Dashboard.
 
 <br />
 
-## Project Structure
+## ✨ Project Structure
 
 ```bash
 api-server-flask/
@@ -140,7 +140,7 @@ api-server-flask/
 
 <br />
 
-## API
+## ✨ API
 
 For a fast set up, use this `POSTMAN` file: [api_sample](https://github.com/app-generator/api-unified-definition/blob/main/api.postman_collection.json)
 
@@ -187,7 +187,7 @@ authorization: JWT_TOKEN (returned by Login request)
 
 <br />
 
-## Testing
+## ✨ Testing
 
 Run tests using `pytest tests.py`
 
