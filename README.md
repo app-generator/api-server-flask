@@ -26,9 +26,7 @@ $ cd api-server-flask
 > Start the app in Docker
 
 ```bash
-$ docker-compose pull  # download dependencies 
-$ docker-compose build # local set up
-$ docker-compose up    # start the app 
+$ docker-compose up --build  
 ```
 
 The API server will start using the PORT `5000`.
