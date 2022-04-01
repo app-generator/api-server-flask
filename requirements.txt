@@ -5,3 +5,4 @@ Flask-SQLAlchemy==2.5.1
 Flask-Cors==3.0.10
 pytest
 gunicorn==20.1.0
+Werkzeug==2.0.3
