@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.2] 2022-06-07
+### Improvements
+
+- Update dependencies 
+
 ## [1.0.1] 2021-11-16
 ### Improvements
 

@@ -1,8 +1,8 @@
-Flask==2.0.2
+Flask==2.1.2
 flask-restx==0.5.1
-flask_jwt_extended==4.2.3
+flask_jwt_extended==4.4.1
 Flask-SQLAlchemy==2.5.1
 Flask-Cors==3.0.10
-pytest
 gunicorn==20.1.0
-Werkzeug==2.0.3
+Werkzeug==2.1.2
+pytest==7.1.2
