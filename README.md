@@ -1,4 +1,4 @@
-## [Flask API Server](https://appseed.us/boilerplate-code/flask-api-boilerplate)
+## Flask API Server
 
 Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boilerplate) enhanced with JWT authentication, SqlAlchemy, **SQLite** persistence and deployment scripts via Docker - Provided by **AppSeed**. It has all the ready-to-use bare minimum essentials.
 
@@ -11,6 +11,19 @@ Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boi
 - Simple, intuitive codebase - can be extended with ease. 
 - `Flask-restX`, `Flask-jwt_extended`
 - **Docker**, `Unitary tests`
+
+<br />
+
+
+> Can be used with other [React Starters](https://appseed.us/apps/react) for a complete **Full-Stack** experience:
+
+| [React Node JS Berry](https://appseed.us/product/berry-dashboard/api-server-nodejs/react/) | [React Node Soft Dashboard](https://appseed.us/product/soft-ui-dashboard/api-server-nodejs/react/) | [React Node Horizon](https://appseed.us/product/horizon-ui/api-server-nodejs/) |
+| --- | --- | --- |
+| [![React Node JS Berry](https://user-images.githubusercontent.com/51070104/176936514-f1bccb21-bafe-4b43-9e4c-b6fe0ec9511d.png)](https://appseed.us/product/berry-dashboard/api-server-nodejs/react/) | [![React Node Soft Dashboard](https://user-images.githubusercontent.com/51070104/176936814-74386559-4e05-43d5-b9a4-8f70ce96a610.png)](https://appseed.us/product/soft-ui-dashboard/api-server-nodejs/react/) | [![React Node Horizon](https://user-images.githubusercontent.com/51070104/174428337-181e6dea-0ad9-4fe1-a35f-25e5fa656a9d.png)](https://appseed.us/product/horizon-ui/api-server-nodejs/)
+
+<br />
+
+![Flask API Server - Open-source Flask Starter provided by AppSeed.](https://user-images.githubusercontent.com/51070104/126349643-264d4cf4-6d0b-4c24-8185-adf69409fa4e.png)
 
 <br />
 
@@ -30,22 +43,6 @@ $ docker-compose up --build
 ```
 
 The API server will start using the PORT `5000`.
-
-<br />
-
-> **[PRO Version](https://github.com/app-generator/api-server-flask-pro)** available: MongoDB persistance, Docker, Unitary Tests, 24/7 LIVE Support via [Discord](https://discord.gg/fZC6hup)
-
-<br />
-
-> Can be used with other [React Starters](https://appseed.us/apps/react) for a complete **Full-Stack** experience:
-
-| [React Node JS Berry](https://appseed.us/product/react-node-js-berry-dashboard) | [React Node Soft Dashboard](https://appseed.us/product/node-js-react-soft-dashboard) | [React Purity Dashboard](https://github.com/app-generator/react-purity-dashboard) |
-| --- | --- | --- |
-| [![React Node JS Berry](https://user-images.githubusercontent.com/51070104/124934742-aa392300-e00d-11eb-83bf-28d8b8704ec8.png)](https://appseed.us/product/react-node-js-berry-dashboard) | [![React Node Soft Dashboard](https://user-images.githubusercontent.com/51070104/137918158-54b20cce-1ac8-4279-ab89-aac0353ff7d3.png)](https://appseed.us/product/node-js-react-soft-dashboard) | [![React Purity Dashboard](https://user-images.githubusercontent.com/51070104/141952254-be2308c1-f304-42b3-bfeb-dd082ab9a86e.jpg)](https://github.com/app-generator/react-purity-dashboard)
-
-<br />
-
-![Flask API Server - Open-source Flask Starter provided by AppSeed.](https://user-images.githubusercontent.com/51070104/126349643-264d4cf4-6d0b-4c24-8185-adf69409fa4e.png)
 
 <br />
 
