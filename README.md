@@ -191,4 +191,4 @@ Run tests using `pytest tests.py`
 <br />
 
 ---
-**[Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boilerplate)** - provided by AppSeed [App Generator](https://appseed.us)
+**Flask API Boilerplate** - provided by AppSeed [App Generator](https://appseed.us)
