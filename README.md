@@ -1,4 +1,4 @@
-## Flask API Server
+## [Flask API Server](https://github.com/app-generator/api-server-flask)
 
 Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boilerplate) enhanced with JWT authentication, SqlAlchemy, **SQLite** persistence and deployment scripts via Docker - Provided by **AppSeed**. It has all the ready-to-use bare minimum essentials.
 
@@ -6,12 +6,13 @@ Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boi
 
 > Features:
 
-- `Up-to-date dependencies` 
-- [API Definition](https://docs.appseed.us/boilerplate-code/api-unified-definition) - the unified API structure implemented by this server
-- Simple, intuitive codebase - can be extended with ease. 
-- `Flask-restX`, `Flask-jwt_extended`
-- **Docker**, `Unitary tests`
-
+- ✅ `Up-to-date dependencies` 
+- ✅ [API Definition](https://docs.appseed.us/boilerplate-code/api-unified-definition) - the unified API structure implemented by this server
+- ✅ `Flask-restX`, `Flask-jwt_extended`
+- ✅ **Docker**, `Unitary tests`
+- ✅ `Instant Deploy` on RENDER using [Python Deployer](https://github.com/app-generator/deploy-automation-render)
+  - `python.exe deployer.py django <THIS_REPO> "run:app"`
+  
 <br />
 
 > Can be used with other [React Starters](https://appseed.us/apps/react) for a complete **Full-Stack** experience:
@@ -190,4 +191,4 @@ Run tests using `pytest tests.py`
 <br />
 
 ---
-**Flask API Boilerplate** - provided by AppSeed [App Generator](https://appseed.us)
+**[Flask API Server](https://github.com/app-generator/api-server-flask)** - provided by [AppSeed](https://appseed.us)
