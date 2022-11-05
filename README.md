@@ -10,7 +10,7 @@ Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boi
 - ✅ [API Definition](https://docs.appseed.us/boilerplate-code/api-unified-definition) - the unified API structure implemented by this server
 - ✅ `Flask-restX`, `Flask-jwt_extended`
 - ✅ **Docker**, `Unitary tests`
-- ✅ `Instant Deploy` on RENDER using [Python Deployer](https://github.com/app-generator/deploy-automation-render)
+- 🚀 `Instant Deploy` on RENDER using [Python Deployer](https://github.com/app-generator/deploy-automation-render)
   - `python.exe deployer.py django <THIS_REPO> "run:app"`
   
 <br />
