@@ -11,7 +11,7 @@ Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boi
 - ✅ `Flask-restX`, `Flask-jwt_extended`
 - ✅ **Docker**, `Unitary tests`
 - 🚀 `Instant Deploy` on RENDER using [Python Deployer](https://github.com/app-generator/deploy-automation-render)
-  - `python.exe deployer.py django <THIS_REPO> "run:app"`
+  - `python.exe deployer.py flask <THIS_REPO> "run:app"`
   
 <br />
 
