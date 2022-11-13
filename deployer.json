@@ -1,0 +1,5 @@
+{
+    "name":"api-server-flask",
+    "framework": "flask",
+    "type": "api-server-flask"
+}

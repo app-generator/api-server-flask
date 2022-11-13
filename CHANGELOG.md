@@ -1,5 +1,11 @@
 # Change Log
 
+## [v1.0.4] 2022-11-13
+### Improvements
+
+- Added `deployer` file
+  - Used by AppSeed [Go-LIVE](https://appseed.us/go-live/) service
+  
 ## [1.0.3] 2022-11-05
 ### Improvements
 
