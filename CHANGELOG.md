@@ -1,5 +1,11 @@
 # Change Log
 
+## [v1.0.5] 2022-12-02
+### Changes
+
+- Minor Improvements
+- Tests for React Kits
+
 ## [v1.0.4] 2022-11-13
 ### Improvements
 
