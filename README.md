@@ -10,7 +10,8 @@ Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boi
 - ✅ [API Definition](https://docs.appseed.us/boilerplate-code/api-unified-definition) - the unified API structure implemented by this server
 - ✅ API powered by `Flask-restX` 
 - ✅ `JWT Authentication` (login, logout, register) via `Flask-jwt_extended`
-- ✅ `OAuth` for **Github**
+- 🆕 `OAuth` for **Github**
+  - Full-stack ready with [React Soft Dashboard](https://github.com/app-generator/react-soft-ui-dashboard)
 - ✅ **Docker**, `Unitary tests`
 - 🚀 `Instant Deploy` on RENDER using [Python Deployer](https://github.com/app-generator/deploy-automation-render)
   - `python.exe deployer.py flask <THIS_REPO> "run:app"`
