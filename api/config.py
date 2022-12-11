@@ -16,5 +16,7 @@ class BaseConfig():
     
     SECRET_KEY     = os.getenv('SECRET_KEY'    , 'S#perS3crEt_913' )
     JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY', 'S#perS3crEt_JWT' )
+    GITHUB_CLIENT_ID = os.getenv('GITHUB_CLIENT_ID')
+    GITHUB_CLIENT_SECRET = os.getenv('GITHUB_CLIENT_SECRET')
     
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)

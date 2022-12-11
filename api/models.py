@@ -16,7 +16,7 @@ db = SQLAlchemy()
 class Users(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(32), nullable=False)
-    email = db.Column(db.String(64), nullable=False)
+    email = db.Column(db.String(64), nullable=True)
     password = db.Column(db.Text())
     jwt_auth_active = db.Column(db.Boolean())
     date_joined = db.Column(db.DateTime(), default=datetime.utcnow)
@@ -53,6 +53,10 @@ class Users(db.Model):
     @classmethod
     def get_by_email(cls, email):
         return cls.query.filter_by(email=email).first()
+    
+    @classmethod
+    def get_by_username(cls, username):
+        return cls.query.filter_by(username=username).first()
 
     def toDICT(self):
 
