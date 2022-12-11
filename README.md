@@ -107,7 +107,15 @@ $ (Powershell) $env:FLASK_ENV = "development"
 
 <br />
 
-> **Step #5** - start test APIs server at `localhost:5000`
+> **Step #5** - set `.env` for GitHub social login
+```bash
+$ GITHUB_CLIENT_ID=
+$ GITHUB_CLIENT_SECRET=
+```
+
+<br />
+
+> **Step #6** - start test APIs server at `localhost:5000`
 
 ```bash
 $ flask run
