@@ -1,5 +1,10 @@
 # Change Log
 
+## [v1.0.6] 2022-12-08
+### Changes
+
+- OAuth via Github (stable)
+
 ## [v1.0.5] 2022-12-02
 ### Changes
 
