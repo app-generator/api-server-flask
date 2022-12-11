@@ -8,7 +8,9 @@ Simple [Flask API Boilerplate](https://appseed.us/boilerplate-code/flask-api-boi
 
 - ✅ `Up-to-date dependencies` 
 - ✅ [API Definition](https://docs.appseed.us/boilerplate-code/api-unified-definition) - the unified API structure implemented by this server
-- ✅ `Flask-restX`, `Flask-jwt_extended`
+- ✅ API powered by `Flask-restX` 
+- ✅ `JWT Authentication` (login, logout, register) via `Flask-jwt_extended`
+- ✅ `OAuth` for **Github**
 - ✅ **Docker**, `Unitary tests`
 - 🚀 `Instant Deploy` on RENDER using [Python Deployer](https://github.com/app-generator/deploy-automation-render)
   - `python.exe deployer.py flask <THIS_REPO> "run:app"`
@@ -107,11 +109,15 @@ $ (Powershell) $env:FLASK_ENV = "development"
 
 <br />
 
-> **Step #5** - set `.env` for GitHub social login
-```bash
-$ GITHUB_CLIENT_ID=
-$ GITHUB_CLIENT_SECRET=
-```
+> **Step #5** - Create a new `.env` file using sample `env.sample`
+
+The meaning of each variable can be found below: 
+
+- `DEBUG`: if `True` the app runs in develoment mode
+  - For production value `False` should be used
+- `SECRET_KEY`: used in assets management
+- `GITHUB_CLIENT_ID`: For GitHub social login
+- `GITHUB_SECRET_KEY`: For GitHub social login
 
 <br />
 
