@@ -1,5 +1,12 @@
 # Change Log
 
+## [v1.0.7] 2023-02-11
+### Changes
+
+- Codebase Improvements
+- `DB Management` Improvement
+  - `Silent fallback` to **SQLite**
+
 ## [v1.0.6] 2022-12-08
 ### Changes
 
