@@ -1,6 +1,6 @@
 ## [Flask API Server](https://github.com/app-generator/api-server-flask)
 
-Simple **Flask API Boilerplate** enhanced with `JWT` authentication, `OAuth` via **GitHub**, `SqlAlchemy`, **SQLite** persistence and deployment scripts via Docker - Provided by **[AppSeed](https://appseed.us/)**. It has all the ready-to-use bare minimum essentials and `active versioning` and [support](https://appseed.us/support/).
+Simple **Flask API Boilerplate** enhanced with `JWT` authentication, `OAuth` via **GitHub**, `SqlAlchemy`, **SQLite** persistence, and deployment scripts via Docker. It has all the `ready-to-use` bare minimum essentials.
 
 - 👉 [Support](https://appseed.us/support/) via **Discord & Email** provided by `AppSeed`. 
 
