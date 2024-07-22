@@ -2,7 +2,8 @@
 
 Simple **Flask API Boilerplate** enhanced with `JWT` authentication, `OAuth` via **GitHub**, `SqlAlchemy`, **SQLite** persistence, and deployment scripts via Docker. It has all the `ready-to-use` bare minimum essentials.
 
-- 👉 [Support](https://appseed.us/support/) via **Discord & Email** provided by `AppSeed`. 
+- 👉 [Support](https://appseed.us/support/) via **Discord & Email**
+- 🚀 [Custom Development Services](https://appseed.us/custom-development/) for `StartUPs`, `Small Businesses`, and `Solo-developers`
 
 <br />
 
